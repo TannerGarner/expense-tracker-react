@@ -1,21 +1,210 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.header {
+  background-color: #181825;
+  display: flex;
+  padding: 10px 30px;
+}
+.header .userInfo {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.header .userInfo h6 {
+  font-size: 24px;
+  color: #FFE7D6;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.balance {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  gap: 10px;
 }
+.balance h2 {
+  color: #EF6C00;
+  font-size: 48px;
+}
+
+.goals {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 30px 0;
+  gap: 30px;
+}
+.goals .goalCardContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 30px;
+}
+.goals .goalCardContainer p {
+  font-size: 24px;
+}
+.goals .goalCard {
+  background-color: #181825;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 25px;
+  gap: 10px;
+}
+.goals .goalCard p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.recurringCard {
+  background-color: #181825;
+  border-radius: 25px;
+  padding: 30px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.recurringCard .transContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 0;
+}
+.recurringCard p {
+  font-size: 24px;
+}
+
+.recurTrans {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+}
+.recurTrans .circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  background-color: #9C0D38;
+}
+
+.regTransCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.regTransCard h4 {
+  padding: 15px;
+}
+.regTransCard .dropDownMenus {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 15px 0;
+}
+.regTransCard .dropDownMenus * {
+  background-color: #30304B;
+  color: #FFF3EB;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 10px;
+}
+.regTransCard .regTransTable {
+  width: 100%;
+  display: grid;
+  font-size: 18px;
+}
+.regTransCard .regTransHead {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 17% 32% 26% 25%;
+  padding: 15px 10px;
+  border: solid 2px #30304B;
+}
+.regTransCard .regTransHead * {
+  display: flex;
+  align-items: center;
+}
+.regTransCard .regTransBody {
+  width: 100%;
+  display: grid;
+}
+.regTransCard .regTrans {
+  display: flex;
+  display: grid;
+  grid-template-columns: 17% 32% 26% 25%;
+  padding: 15px 10px;
+  border: solid 2px #9C0D38;
+}
+
+.addButton {
+  border-radius: 100px;
+  border: 1px solid #30304B;
+  width: 65px;
+  height: 65px;
+  color: #FFF3EB;
+  background-color: #EF6C00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+}
+.addButton .addImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+}
+
+.addModal {
+  background-color: #30304B;
+  border: solid 2px #EF6C00;
+  border-radius: 25px;
+  width: 200px;
+  height: 165px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: fixed;
+  right: 50px;
+  bottom: 120px;
+  font-size: 24px;
+}
+.addModal ul {
+  list-style-type: "+  ";
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 20px;
+}
+
+html, body {
+  width: 100vw;
+  background-color: #101018;
+  color: #FFF3EB;
+  font-family: "Lexend";
+  margin: 0px;
+  padding: 0px;
+}
+html *, body * {
+  margin: 0px;
+  padding: 0px;
+  font-weight: 400;
+}
+html h4, body h4 {
+  font-size: 32px;
+}
+
+.displayToggle {
+  display: none;
+}/*# sourceMappingURL=globals.css.map */

@@ -1,0 +1,27 @@
+@use "../../app/styles/variables" as var;
+
+.addModal {
+    background-color: var.$spaceCadetGrey;
+    border: solid 2px var.$orange;
+    border-radius: 25px;
+    width: 200px;
+    height: 165px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    position: fixed;
+    right: 50px;
+    bottom: 120px;
+
+    font-size: var.$fontReg;
+
+    ul{
+        list-style-type: "+  ";
+        display: flex;
+        flex-direction: column;
+        gap: var.$gapSm;
+        padding-right: 20px;
+    }
+}

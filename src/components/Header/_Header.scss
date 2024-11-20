@@ -1,0 +1,24 @@
+@use "../../app/styles/variables" as var;
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.header{
+    background-color: var.$raisinBlack;
+    display: flex;
+    padding: var.$padSm var.$padReg;
+
+    .userInfo {
+        padding: var.$padSm;
+        display: flex;
+        flex-direction: column;
+
+        h6{
+            font-size: var.$fontReg;
+            color: var.$champagnePinkWhite;
+        }
+    }
+}
+

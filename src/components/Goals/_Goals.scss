@@ -1,0 +1,33 @@
+@use "../../app/styles/variables" as var;
+
+.goals {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 var.$padReg 0;
+    gap: var.$gapReg;
+
+    .goalCardContainer {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: var.$gapReg;
+        p{
+            font-size: var.$fontReg;
+        }
+    }
+
+    .goalCard {
+        background-color: var.$raisinBlack;
+        display: flex;
+        flex-direction: column;
+        padding: var.$padMed;
+        border-radius: 25px;
+        gap: var.$gapSm;
+        p{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+@use "../../app/styles/variables" as var;
+
+.balance {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var.$padReg;
+    gap: var.$gapSm;
+
+    h2{
+        color: var.$orange;
+        font-size: var.$headExLg;
+    }
+}

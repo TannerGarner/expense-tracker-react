@@ -1,0 +1,62 @@
+@use "../../app/styles/variables" as var;
+
+.regTransCard{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h4 {
+       padding: var.$padMed 
+    }
+
+    .dropDownMenus {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        padding: var.$padMed 0;
+        *{ // Select boxes
+            background-color: var.$spaceCadetGrey;
+            color: var.$seashellWhite;
+            appearance: none;
+            border: none;
+            border-radius: 10px;
+            font-size: var.$fontSm;
+            padding: var.$padSm;
+        }
+    }
+
+    .regTransTable {
+        width:  100%;
+        display: grid;
+        font-size: var.$fontSm;
+    }
+
+    .regTransHead {
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: 17% 32% 26% 25%;
+        padding: var.$padMed var.$padSm;
+
+        border: solid 2px var.$spaceCadetGrey;
+        *{
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .regTransBody{
+        width: 100%;
+        display: grid;
+    }
+
+    .regTrans{
+        display: flex;
+        // width: 100%;
+        display: grid;
+        grid-template-columns: 17% 32% 26% 25%;
+
+        padding: var.$padMed var.$padSm;
+        border: solid 2px var.$claretRed;
+    }
+}

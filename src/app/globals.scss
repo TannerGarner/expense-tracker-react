@@ -1,0 +1,32 @@
+@use "./styles/variables" as var;
+
+@use "../components/Header/Header" as header;
+@use "../components/Balance/Balance" as balance;
+@use "../components/Goals/Goals" as goals;
+@use "../components/RecurringCard/RecurringTransactions" as recurring;
+@use "../components/RegTransCard/RegTransCard" as regTransactions;
+@use "../components/AddButton/AddButton" as addButton;
+@use "../components/AddModal/AddModal" as addModal;
+
+html, body {
+    width: 100vw;
+    background-color: var.$richBlack;
+    color: var.$seashellWhite;
+    font-family: "Lexend";
+
+    margin: 0px;
+    padding: 0px;
+    *{
+        margin: 0px;
+        padding: 0px;
+        font-weight: 400;
+    }
+
+    h4{
+        font-size: 32px;;
+    }
+}
+
+.displayToggle{
+    display: none;
+}

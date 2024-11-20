@@ -1,0 +1,23 @@
+@use "../../app/styles/variables" as var;
+
+.addButton{
+    border-radius: 100px;
+    border: 1px solid var.$spaceCadetGrey;
+    width: 65px;
+    height: 65px;
+    color: var.$seashellWhite;
+    background-color: var.$orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+
+    .addImage{
+        width: 60px;
+        height: 60px;
+        border-radius: 100px;
+    }
+}
