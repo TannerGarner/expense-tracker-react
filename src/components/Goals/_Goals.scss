@@ -30,4 +30,42 @@
             justify-content: space-between;
         }
     }
+
+    .goalInput{
+        background-color: var.$raisinBlack;
+        color: var.$seashellWhite;
+        border-radius: 25px;
+        padding: var.$padMed;
+        display: flex;
+        flex-direction: column;
+        font-size: 24px;
+        gap: var.$gapSm;
+    
+        div{
+            padding: var.$padSm;
+            display: flex;
+            align-items: center;
+        }
+
+        .whatToWatch{
+            flex-wrap: wrap;
+            gap: var.$gapSm;
+        }
+    
+        input, select{
+            padding: var.$padSm;
+            font-size: 24px;
+        }
+    
+        p{
+            display: inline;
+        }
+
+        .goalButtons{
+            display: flex;
+            justify-content: space-between;
+            
+        }
+    }
 }
+

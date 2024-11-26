@@ -1,10 +1,10 @@
-export default function TransDropdown () {
+export default function DropdownMenu () {
     
     function populateDate() {
         let dateOptions = ["Today","Weekly","Monthly","Annually"]
         return (
-            dateOptions.map((str)=>{ 
-                return<option>{str}</option>
+            dateOptions.map((str , index)=>{ 
+                return<option key={index}>{str}</option>
             })
         )
     }

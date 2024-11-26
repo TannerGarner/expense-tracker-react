@@ -20,7 +20,7 @@ export default function TransactionProvider({ children }){
     )
 
     return(
-        <TransactionContext.Provider value={goal}>
+        <TransactionContext.Provider value={transaction}>
             { children }
         </TransactionContext.Provider>
     )

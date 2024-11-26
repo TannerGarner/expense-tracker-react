@@ -1,4 +1,5 @@
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
+import GoalInput from './GoalInput';
 
 export default function GoalCard () {
     let goal = {

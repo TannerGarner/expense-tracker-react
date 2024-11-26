@@ -27,7 +27,7 @@
     }
 
     .regTransTable {
-        width:  100%;
+        width:  100vw;
         display: grid;
         font-size: var.$fontSm;
     }
@@ -48,15 +48,49 @@
     .regTransBody{
         width: 100%;
         display: grid;
+
+        background-color: var.$raisinBlack;
     }
 
     .regTrans{
-        display: flex;
-        // width: 100%;
         display: grid;
         grid-template-columns: 17% 32% 26% 25%;
 
         padding: var.$padMed var.$padSm;
         border: solid 2px var.$claretRed;
+    }
+
+    .regTransInput{
+        background-color: var.$raisinBlack;
+        border-radius: 2px;
+        border: solid 2px var.$orange;
+        padding: var.$padMed var.$padSm;
+        font-size: var.$fontSm;
+
+        display: flex;
+        flex-direction: column;
+        gap: var.$gapSm;
+        width: 95vw;
+
+        select{
+            font-size: var.$fontSm;
+        }
+    }
+
+    .firstRowInputs{
+        display: grid;
+        grid-template-columns: 15% 26% 26% 26%;
+        gap: var.$gapSm;
+    }
+
+    .secondRowInputs{
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        gap: var.$gapSm;
+    }
+
+    .button{
+        width: 115px;
+        padding: 5px;
     }
 }

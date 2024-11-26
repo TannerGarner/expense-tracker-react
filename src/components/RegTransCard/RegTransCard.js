@@ -1,22 +1,23 @@
 import RegTrans from "./RegTrans";
-import TransDropdown from "./TransDropdown";
+import DropdownMenu from "../DropdownMenu/DropdownMenu";
 import SwapVertOutlinedIcon from '@mui/icons-material/SwapVertOutlined';
+import RegTransInput from "./RegTransInput";
 
 export default function RegTransCard() {
   return (
     <div className="regTransCard">
       <h4>Track Transactions</h4>
       <div className="dropDownMenus">
-        <TransDropdown></TransDropdown>
-        <TransDropdown></TransDropdown>
-        <TransDropdown></TransDropdown>
+        <DropdownMenu></DropdownMenu>
+        <DropdownMenu></DropdownMenu>
+        <DropdownMenu></DropdownMenu>
       </div>
       <div className="regTransTable">
         <div className="regTransHead">
-          <p>Date<SwapVertOutlinedIcon></SwapVertOutlinedIcon></p>
-          <p>Description<SwapVertOutlinedIcon></SwapVertOutlinedIcon></p>
-          <p>Category<SwapVertOutlinedIcon></SwapVertOutlinedIcon></p>
-          <p>$Amount<SwapVertOutlinedIcon></SwapVertOutlinedIcon></p>
+          <p>Date<SwapVertOutlinedIcon/></p>
+          <p>Description<SwapVertOutlinedIcon/></p>
+          <p>Category<SwapVertOutlinedIcon/></p>
+          <p>$Amount<SwapVertOutlinedIcon/></p>
         </div>
         <div className="regTransBody">
           <RegTrans></RegTrans>
@@ -26,6 +27,7 @@ export default function RegTransCard() {
           <RegTrans></RegTrans>
           <RegTrans></RegTrans>
         </div>
+        <RegTransInput></RegTransInput>
       </div>
     </div>
   );

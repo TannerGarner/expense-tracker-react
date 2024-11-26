@@ -59,6 +59,36 @@ a {
   align-items: center;
   justify-content: space-between;
 }
+.goals .goalInput {
+  background-color: #181825;
+  color: #FFF3EB;
+  border-radius: 25px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  gap: 10px;
+}
+.goals .goalInput div {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+.goals .goalInput .whatToWatch {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.goals .goalInput input, .goals .goalInput select {
+  padding: 10px;
+  font-size: 24px;
+}
+.goals .goalInput p {
+  display: inline;
+}
+.goals .goalInput .goalButtons {
+  display: flex;
+  justify-content: space-between;
+}
 
 .recurringCard {
   background-color: #181825;
@@ -92,6 +122,40 @@ a {
   background-color: #9C0D38;
 }
 
+.recurringInput {
+  background-color: #30304B;
+  border-radius: 20px;
+  padding: 15px;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  gap: 15px;
+}
+.recurringInput div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
+}
+.recurringInput .inputColumns {
+  display: flex;
+  flex-flow: column wrap;
+  max-width: 50%;
+}
+.recurringInput select, .recurringInput input {
+  font-size: 24px;
+  background-color: #181825;
+  width: 80%;
+}
+.recurringInput .recurUiButtons {
+  display: flex;
+  justify-content: space-around;
+}
+.recurringInput .recurUiButtons .button {
+  padding: 10px;
+}
+
 .regTransCard {
   width: 100%;
   display: flex;
@@ -119,7 +183,7 @@ a {
   padding: 10px;
 }
 .regTransCard .regTransTable {
-  width: 100%;
+  width: 100vw;
   display: grid;
   font-size: 18px;
 }
@@ -137,13 +201,41 @@ a {
 .regTransCard .regTransBody {
   width: 100%;
   display: grid;
+  background-color: #181825;
 }
 .regTransCard .regTrans {
-  display: flex;
   display: grid;
   grid-template-columns: 17% 32% 26% 25%;
   padding: 15px 10px;
   border: solid 2px #9C0D38;
+}
+.regTransCard .regTransInput {
+  background-color: #181825;
+  border-radius: 2px;
+  border: solid 2px #EF6C00;
+  padding: 15px 10px;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 95vw;
+}
+.regTransCard .regTransInput select {
+  font-size: 18px;
+}
+.regTransCard .firstRowInputs {
+  display: grid;
+  grid-template-columns: 15% 26% 26% 26%;
+  gap: 10px;
+}
+.regTransCard .secondRowInputs {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  gap: 10px;
+}
+.regTransCard .button {
+  width: 115px;
+  padding: 5px;
 }
 
 .addButton {
@@ -171,7 +263,7 @@ a {
   border: solid 2px #EF6C00;
   border-radius: 25px;
   width: 200px;
-  height: 165px;
+  height: 250px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -184,8 +276,35 @@ a {
   list-style-type: "+  ";
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   padding-right: 20px;
+}
+.addModal li:hover {
+  color: #EF6C00;
+}
+
+.saveButton {
+  background-color: #EF6C00;
+  color: #FFF3EB;
+  width: 170px;
+  display: flex;
+  justify-content: center;
+  border-radius: 100px;
+}
+.saveButton p {
+  padding: 0 30px;
+}
+
+.cancelButton {
+  background-color: #052F5F;
+  color: #FFF3EB;
+  width: 170px;
+  display: flex;
+  justify-content: center;
+  border-radius: 100px;
+}
+.cancelButton p {
+  padding: 0 30px;
 }
 
 html, body {
@@ -204,7 +323,11 @@ html *, body * {
 html h4, body h4 {
   font-size: 32px;
 }
-
-.displayToggle {
-  display: none;
+html input, html select, body input, body select {
+  background-color: #30304B;
+  color: #FFF3EB;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  max-width: 100%;
 }/*# sourceMappingURL=globals.css.map */

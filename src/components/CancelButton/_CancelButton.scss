@@ -1,0 +1,16 @@
+@use "../../app/styles/variables" as var;
+
+.cancelButton{
+    background-color: var.$berkelyBlue;
+    color: var.$seashellWhite;
+    width: 170px;
+    display: flex;
+    justify-content: center;
+
+
+    border-radius: 100px;
+    
+    p{
+        padding: 0 var.$padReg;
+    }
+}

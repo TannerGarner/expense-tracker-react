@@ -1,3 +1,4 @@
+import RecurringInput from "./RecurringInput";
 import RecurTrans from "./RecurTrans";
 
 export default function RecurringCard () {
@@ -15,6 +16,7 @@ export default function RecurringCard () {
                     <RecurTrans></RecurTrans>
                 {/* })} */}
             </div>
+            <RecurringInput></RecurringInput>
         </div>
     )
 }

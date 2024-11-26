@@ -1,4 +1,5 @@
 import GoalCard from "./GoalCard"
+import GoalInput from "./GoalInput";
 
 export default function Goals () {
     let month = "November";
@@ -16,6 +17,7 @@ export default function Goals () {
                 <GoalCard></GoalCard>
                 <GoalCard></GoalCard>
             </div>
+            <GoalInput></GoalInput>
         </div>
     )
 }

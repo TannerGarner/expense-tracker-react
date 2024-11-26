@@ -20,8 +20,6 @@
     }
 }
 
-
-
 .recurTrans{
     width: 100%;
     display: flex;
@@ -34,5 +32,45 @@
         height: 50px;
         border-radius: 100px;
         background-color: var.$claretRed;
+    }
+}
+
+.recurringInput {
+    background-color: var.$spaceCadetGrey;
+    border-radius: 20px;
+    padding: var.$padMed;
+    font-size: var.$fontReg;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    gap: var.$gapMed;
+
+    div {
+        display: flex;
+        align-items: center;
+        gap: var.$gapSm;
+
+        max-width: 100%;
+    }
+
+    .inputColumns{
+        display: flex;
+        flex-flow: column wrap;
+        max-width: 50%;
+    }
+
+    select, input{
+        font-size: var.$fontReg;
+        background-color: var.$raisinBlack;
+        width: 80%;
+    }
+
+    .recurUiButtons{
+        display: flex;
+        justify-content: space-around;
+
+        .button{
+            padding: var.$padSm;
+        }
     }
 }

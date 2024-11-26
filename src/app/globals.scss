@@ -6,7 +6,9 @@
 @use "../components/RecurringCard/RecurringTransactions" as recurring;
 @use "../components/RegTransCard/RegTransCard" as regTransactions;
 @use "../components/AddButton/AddButton" as addButton;
-@use "../components/AddModal/AddModal" as addModal;
+@use "../components/AddButton/AddModal" as addModal;
+@use "../components/SaveButton/SaveButton" as saveButton;
+@use "../components/CancelButton/CancelButton" as cancelButton;
 
 html, body {
     width: 100vw;
@@ -25,8 +27,13 @@ html, body {
     h4{
         font-size: 32px;;
     }
-}
 
-.displayToggle{
-    display: none;
+    input, select{
+        background-color: var.$spaceCadetGrey;
+        color: var.$seashellWhite;
+        border-radius: 10px;
+        border: none;
+        padding: var.$padSm;
+        max-width: 100%;
+    }
 }
