@@ -1,30 +1,39 @@
 'use client'
 
+import { DisplayContext } from '@/context/DisplayContextProvider';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 export default function AddButton() {
-    const [display, setDisplay] = useState(false);
+    const [open, setOpen] = useState(false);
 
+    const {display, setDisplay} = useContext(DisplayContext);
+
+    function handleClick(val) {
+        setDisplay(val)
+        setOpen(false)
+    }
+
+    const menuItems = ["Category","Tag","Goal","Recurring","Transaction"]
+
+    if (display !== null) return null;
     return (
         <div>
-            {display && ( 
+            {open && ( 
                 <div className="addModal">
                     <ul>
-                        <li>Category</li>
-                        <li>Tag</li>
-                        <li>Goal</li>
-                        <li>Recurring</li>
-                        <li>Transaction</li>
+                        {menuItems.map((item, index)=>{
+                            return(<li onClick={()=>handleClick(item)} key={index}>{item}</li>)
+                        })}
                     </ul>
                 </div>
             )}
             <div
                 className="addButton"
-                onClick={() => setDisplay((prev) => !prev)} 
+                onClick={() => setOpen((prev) => !prev)} 
             >
-                {display ? (
+                {open ? (
                     <RemoveIcon className="addImage" />
                 ) : (
                     <AddIcon className="addImage" />

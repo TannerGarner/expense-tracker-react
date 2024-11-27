@@ -1,8 +1,16 @@
+'use client'
+
+import { useContext } from "react";
 import CancelButton from "../CancelButton/CancelButton";
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
 import SaveButton from "../SaveButton/SaveButton";
+import DisplayProvider, { DisplayContext } from "@/context/DisplayContextProvider";
 
 export default function RecurringInput(){
+    const {display, setDisplay} = useContext(DisplayContext);
+
+    if (display !== "Recurring") return null;
+
     return(
         <div className="recurringInput">
             <div>

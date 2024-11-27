@@ -1,13 +1,20 @@
+'use client'
+
+import { useContext } from "react"
 import CancelButton from "../CancelButton/CancelButton"
 import SaveButton from "../SaveButton/SaveButton"
+import DisplayProvider, { DisplayContext } from "@/context/DisplayContextProvider"
 
 
 export default function GoalInput() {
-    
+    const {display, setDisplay} = useContext(DisplayContext);
+
     let categories = ["Home", "Utilities", "Paycheck"]
     let tags = ["Essential", "Tech", "user1", "user2", "Fun"]
 
     let dateOptions = ["Today","Weekly","Monthly","Annually"]
+
+    if (display !== "Goal") return null;
 
     return (
         <div className="goalInput">

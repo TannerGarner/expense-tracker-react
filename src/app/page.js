@@ -14,20 +14,16 @@ import '@fontsource/roboto/700.css';
 
 export default function Home() {
   
-  //state for toggling 
+
   
   return (
     <div>
-      <GoalProvider>
-        <TransactionProvider>
-          <Header></Header>
-          <Balance></Balance>
-          <Goals></Goals>
-          <RecurringCard></RecurringCard>
-          <RegTransCard></RegTransCard>
-          <AddButton></AddButton>
-        </TransactionProvider>
-      </GoalProvider>
+        <Header></Header>
+        <Balance></Balance>
+        <Goals></Goals>
+        <RecurringCard></RecurringCard>
+        <RegTransCard></RegTransCard>
+        <AddButton></AddButton>
     </div>
   );
 }

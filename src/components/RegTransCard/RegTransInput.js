@@ -1,9 +1,16 @@
+'use client'
+
+import { useContext } from "react";
 import CancelButton from "../CancelButton/CancelButton";
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
 import SaveButton from "../SaveButton/SaveButton";
+import DisplayProvider, { DisplayContext } from "@/context/DisplayContextProvider";
 
 export default function RegTransInput() {
     
+    const {display, setDisplay} = useContext(DisplayContext);
+
+    if (display !== "Transaction") return null;
 
     return (
         <div className="regTransInput">
@@ -23,6 +30,7 @@ export default function RegTransInput() {
                 <span>Custom Tags</span>
                 <span>Cashflow</span>
                 <CancelButton/>
+                
             </div>
             <div className="secondRowInputs">
                 <DropdownMenu></DropdownMenu>
