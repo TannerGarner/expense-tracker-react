@@ -6,17 +6,10 @@ export const GoalContext = createContext(null);
 
 export default function GoalProvider({ children }){
 
-    const [goal, setGoal] = useState(
-        {
-            title: null,
-            tags: [],
-            amount: null,
-            actual: null
-        }   
-    )
+    const [goal, setGoal] = useState({})
 
     return(
-        <GoalContext.Provider value={goal}>
+        <GoalContext.Provider value={{goal, setGoal}}>
             { children }
         </GoalContext.Provider>
     )

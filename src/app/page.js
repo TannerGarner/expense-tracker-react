@@ -4,6 +4,7 @@ import Goals from '@/components/Goals/Goals';
 import Header from '@/components/Header/Header';
 import RecurringCard from '@/components/RecurringCard/RecurringCard';
 import RegTransCard from '@/components/RegTransCard/RegTransCard';
+import RegTransInput from '@/components/RegTransCard/RegTransInput';
 import GoalProvider from '@/context/GoalContextProvider';
 import TransactionProvider from '@/context/TransactionContextProvider';
 import '@fontsource/roboto/300.css';
@@ -13,8 +14,6 @@ import '@fontsource/roboto/700.css';
 
 
 export default function Home() {
-  
-
   
   return (
     <div>

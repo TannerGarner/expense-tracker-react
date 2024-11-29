@@ -6,7 +6,7 @@ export const DisplayContext = createContext("");
 
 export default function DisplayProvider({ children }) {
 
-    const [display, setDisplay] = useState("")
+    const [display, setDisplay] = useState(null)
 
     return(
         <DisplayContext.Provider value={{display, setDisplay}}>

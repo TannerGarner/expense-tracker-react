@@ -3,16 +3,21 @@
 import { useContext } from "react"
 import CancelButton from "../CancelButton/CancelButton"
 import SaveButton from "../SaveButton/SaveButton"
-import DisplayProvider, { DisplayContext } from "@/context/DisplayContextProvider"
-
+import { DisplayContext } from "@/context/DisplayContextProvider"
+import { GoalContext } from "@/context/GoalContextProvider"
 
 export default function GoalInput() {
     const {display, setDisplay} = useContext(DisplayContext);
+    const {goal, setGoal} = useContext(GoalContext);
 
     let categories = ["Home", "Utilities", "Paycheck"]
     let tags = ["Essential", "Tech", "user1", "user2", "Fun"]
 
     let dateOptions = ["Today","Weekly","Monthly","Annually"]
+
+    const handleChange = (e) => {
+        setGoal({ ...goal, [e.target.name]: e.target.value });
+    };
 
     if (display !== "Goal") return null;
 
@@ -21,24 +26,24 @@ export default function GoalInput() {
             <form>
                 <div>
                     <label htmlFor="goalTitle">Title:</label>
-                    <input required type="text" placeholder="Income" id="goalTitle"></input>
+                    <input required type="text" name="goalTitle" placeholder="Income" id="goalTitle" onChange={handleChange}></input>
                 </div>
                 <div>
                     <label htmlFor="goalAmount">Goal:</label>
-                    <input required type="number" placeholder="$1,500" id="goalAmount"></input>
+                    <input required type="number" name="goalAmount" placeholder="$1,500" id="goalAmount" onChange={handleChange}></input>
                 </div>
                 <div className="whatToWatch">
                     <p>What to Watch: </p>
-                    <select required>
+                    <select required name="goalCashflow" onChange={handleChange}>
                         <option>Income</option>
                         <option>Expense</option>
                     </select>
-                    <select>
+                    <select name="goalCategory" onChange={handleChange}>
                         {categories.map((str , index)=>{ 
                             return<option key={index}>{str}</option>
                         })}
                     </select>
-                    <select>
+                    <select name="goalTags" onChange={handleChange}>
                         {tags.map((str , index)=>{ 
                             return<option key={index}>{str}</option>
                         })}
@@ -48,7 +53,7 @@ export default function GoalInput() {
                 </div>
                 <div>
                     <label htmlFor="goalDateOptions">Recurring: </label>
-                    <select id="goalDateOptions">
+                    <select name="goalRecurring" id="goalDateOptions" onChange={handleChange}>
                         {dateOptions.map((str , index)=>{ 
                             return<option key={index}>{str}</option>
                         })}
