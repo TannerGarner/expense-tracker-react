@@ -12,14 +12,12 @@ export default function SaveButton() {
 
     function handleClick(e) {
         e.preventDefault();
-        console.log(goal);
-        console.log(transaction);
+        console.log('Goal', goal);
+        console.log('Transaction', transaction);
         setDisplay(null);
     }
 
     return (
-        <div className="saveButton button" onClick={handleClick}>
-            <p>Save</p>
-        </div>
+        <input type="submit" className="saveButton button" onClick={handleClick}></input>
     );
 }

@@ -1,15 +1,21 @@
 'use client'
 
+import { GoalContext } from "@/context/GoalContextProvider"
 import { TransactionContext } from "@/context/TransactionContextProvider"
 import { useContext } from "react"
 
-export default function DropdownMenu () {
+export default function DropdownMenu ({ dropdownType, targetState }) {
     
     const {transaction, setTransaction} = useContext(TransactionContext)
+    const {goal, setGoal} = useContext(GoalContext)
 
     const handleChange = (e) => {
-        setTransaction({...transaction, [e.target.name]: e.target.value})
-    }
+        if (targetState === "transaction") {
+            setTransaction({ ...transaction, [e.target.name]: e.target.value });
+        } else if (targetState === "goal") {
+            setGoal({ ...goal, [e.target.name]: e.target.value });
+        }
+    };
 
     function populateCashflow(){
         let cashflowOptions = ["Income", "Expense"];
@@ -29,10 +35,19 @@ export default function DropdownMenu () {
         )
     }
 
-    function populateDate() {
-        let dateOptions = ["Today","Weekly","Monthly","Annually"]
+    function populatePayTypes() {
+        let payTypeOptions = ["Auto", "Manual"]
         return (
-            dateOptions.map((str , index)=>{ 
+            payTypeOptions.map((str , index)=>{
+                return<option key={index}>{str}</option>
+            })
+        )
+    }
+
+    function populateRecurring() {
+        let recurringOptions = ["Daily","Weekly","Monthly","Annually"]
+        return (
+            recurringOptions.map((str , index)=>{ 
                 return<option key={index}>{str}</option>
             })
         )
@@ -49,14 +64,18 @@ export default function DropdownMenu () {
     
     let renderedDropdown;
 
-    const dropdownType = "cashflow";
-
     switch (dropdownType) {
         case "cashflow" :
             renderedDropdown = <select name="cashflow" onChange={handleChange}>{populateCashflow()}</select>
             break;
         case "category":
-            renderedDropdown = <select>{populateCategories()}</select>
+            renderedDropdown = <select name="category" onChange={handleChange}>{populateCategories()}</select>
+            break;
+        case "payType" :
+            renderedDropdown = <select name="payType" onChange={handleChange}>{populatePayTypes()}</select>
+            break;
+        case "recurring":
+            renderedDropdown = <select name="recurring" onChange={handleChange}>{populateRecurring()}</select>
             break;
         case "tag":
             renderedDropdown = <select name="tag" onChange={handleChange}>{populateTags()}</select>
@@ -65,9 +84,5 @@ export default function DropdownMenu () {
             renderedDropdown = <select></select>;
     }
 
-    return (
-        <select onChange={handleChange}>
-            {populateDate()}
-        </select>
-    )
+    return renderedDropdown
 }

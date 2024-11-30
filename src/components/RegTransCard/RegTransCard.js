@@ -8,9 +8,9 @@ export default function RegTransCard() {
     <div className="regTransCard">
       <h4>Track Transactions</h4>
       <div className="dropDownMenus">
-        <DropdownMenu></DropdownMenu>
-        <DropdownMenu></DropdownMenu>
-        <DropdownMenu></DropdownMenu>
+        <DropdownMenu dropdownType={"tag"} targetState={"none"}></DropdownMenu>
+        <DropdownMenu dropdownType={"cashflow"} targetState={"none"}></DropdownMenu>
+        <DropdownMenu dropdownType={"date"} targetState={"none"}></DropdownMenu>
       </div>
       <div className="regTransTable">
         <div className="regTransHead">

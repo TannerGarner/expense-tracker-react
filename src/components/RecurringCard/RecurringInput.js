@@ -4,12 +4,14 @@ import { useContext } from "react";
 import CancelButton from "../CancelButton/CancelButton";
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
 import SaveButton from "../SaveButton/SaveButton";
-import DisplayProvider, { DisplayContext } from "@/context/DisplayContextProvider";
+import { DisplayContext } from "@/context/DisplayContextProvider";
 import { TransactionContext } from "@/context/TransactionContextProvider";
+import { GoalContext } from "@/context/GoalContextProvider";
 
 export default function RecurringInput(){
     const {display, setDisplay} = useContext(DisplayContext);
     const {transaction, setTransaction} = useContext(TransactionContext);
+    const {goal, setGoal} = useContext(GoalContext);
 
     const handleChange = (e) => {
         setTransaction({...transaction, [e.target.name]: e.target.value})
@@ -23,7 +25,7 @@ export default function RecurringInput(){
                 <div>
                     {/* circle */}
                     <label>Cash Flow:</label>
-                    <DropdownMenu></DropdownMenu>
+                    <DropdownMenu dropdownType={"cashflow"} targetState={"transaction"}></DropdownMenu>
                 </div>
                 <div>
                     <div className="inputColumns">
@@ -32,14 +34,14 @@ export default function RecurringInput(){
                     </div>
                     <div className="inputColumns">
                         <label>Pay Type:</label>
-                        <DropdownMenu/>
+                        <DropdownMenu dropdownType={"payType"} targetState={"transaction"}></DropdownMenu>
                     </div>
                     {/* calendar */}
                 </div>
                 <div>
                     <div className="inputColumns">
                         <label>Recurring:</label>
-                        <DropdownMenu/>
+                        <DropdownMenu dropdownType={"recurring"} targetState={"transaction"}></DropdownMenu>
                     </div>
                     <div className="inputColumns">
                         <label>Amount:</label>
@@ -49,11 +51,11 @@ export default function RecurringInput(){
                 <div>
                     <div className="inputColumns">
                         <label>Custom Tags:</label>
-                        <DropdownMenu/>
+                        <DropdownMenu dropdownType={"tag"} targetState={"transaction"}></DropdownMenu>
                     </div>
                     <div className="inputColumns">
                         <label>Category:</label>
-                        <DropdownMenu/>
+                        <DropdownMenu dropdownType={"category"} targetState={"transaction"}></DropdownMenu>
                     </div>
                 </div>
                 <div className="recurUiButtons">
