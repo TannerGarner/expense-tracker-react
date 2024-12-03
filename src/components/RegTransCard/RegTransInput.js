@@ -5,15 +5,15 @@ import CancelButton from "../CancelButton/CancelButton";
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
 import SaveButton from "../SaveButton/SaveButton";
 import { DisplayContext } from "@/context/DisplayContextProvider";
-import { TransactionContext } from "@/context/TransactionContextProvider";
+import { TransactionInputContext } from "@/context/TransactionContextProvider";
 
 export default function RegTransInput() {
     
     const {display, setDisplay} = useContext(DisplayContext);
-    const {transaction, setTransaction} = useContext(TransactionContext);
+    const {transactionInput, setTransactionInput} = useContext(TransactionInputContext);
 
     const handleChange = (e) => {
-        setTransaction({ ...transaction, [e.target.name]: e.target.value });
+        setTransactionInput({ ...transactionInput, [e.target.name]: e.target.value });
     };
 
     if (display !== "Transaction") return null;
@@ -37,7 +37,6 @@ export default function RegTransInput() {
                     <span>Custom Tags</span>
                     <span>Cashflow</span>
                     <CancelButton/>
-                    
                 </div>
                 <div className="secondRowInputs">
                     <DropdownMenu dropdownType={"tag"} targetState={"transaction"}></DropdownMenu>

@@ -73,17 +73,28 @@ a {
   padding: 10px;
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 .goals .goalInput .whatToWatch {
   flex-wrap: wrap;
-  gap: 10px;
+}
+.goals .goalInput .whatToWatch div {
+  padding: 0;
+}
+.goals .goalInput .datePicker {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.goals .goalInput .dateRange {
+  flex-wrap: wrap;
+  padding: 0;
+}
+.goals .goalInput .dateRange input {
+  width: 100px;
 }
 .goals .goalInput input, .goals .goalInput select {
   padding: 10px;
   font-size: 24px;
-}
-.goals .goalInput p {
-  display: inline;
 }
 .goals .goalInput .goalButtons {
   display: flex;
@@ -132,7 +143,7 @@ a {
   max-width: 100%;
   gap: 15px;
 }
-.recurringInput div {
+.recurringInput .row {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -142,6 +153,9 @@ a {
   display: flex;
   flex-flow: column wrap;
   max-width: 50%;
+}
+.recurringInput .threeColumnRow div {
+  max-width: 33%;
 }
 .recurringInput select, .recurringInput input {
   font-size: 24px;

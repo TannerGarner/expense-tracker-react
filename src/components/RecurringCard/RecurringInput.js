@@ -5,50 +5,51 @@ import CancelButton from "../CancelButton/CancelButton";
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
 import SaveButton from "../SaveButton/SaveButton";
 import { DisplayContext } from "@/context/DisplayContextProvider";
-import { TransactionContext } from "@/context/TransactionContextProvider";
-import { GoalContext } from "@/context/GoalContextProvider";
+import { TransactionInputContext } from "@/context/TransactionContextProvider";
 
 export default function RecurringInput(){
     const {display, setDisplay} = useContext(DisplayContext);
-    const {transaction, setTransaction} = useContext(TransactionContext);
-    const {goal, setGoal} = useContext(GoalContext);
+    const {transactionInput, setTransactionInput} = useContext(TransactionInputContext);
 
     const handleChange = (e) => {
-        setTransaction({...transaction, [e.target.name]: e.target.value})
+        setTransactionInput({...transactionInput, [e.target.name]: e.target.value})
     }
 
     if (display !== "Recurring") return null;
 
     return(
-        <div className="recurringInput">
-            <form>
-                <div>
+        <div>
+            <form  className="recurringInput">
+                <div className="row">
                     {/* circle */}
                     <label>Cash Flow:</label>
-                    <DropdownMenu dropdownType={"cashflow"} targetState={"transaction"}></DropdownMenu>
+                    <DropdownMenu className={"recurringCashflow"} dropdownType={"cashflow"} targetState={"transaction"}></DropdownMenu>
                 </div>
-                <div>
+                <div className="threeColumnRow row">
                     <div className="inputColumns">
                         <label>Description:</label>
-                        <input name="description" onChange={handleChange}></input>
+                        <input required name="description" type="text" onChange={handleChange}></input>
                     </div>
                     <div className="inputColumns">
                         <label>Pay Type:</label>
                         <DropdownMenu dropdownType={"payType"} targetState={"transaction"}></DropdownMenu>
                     </div>
-                    {/* calendar */}
+                    <div className="inputColumns">
+                        <label>Date:</label>
+                        <input type="date"></input>
+                    </div>
                 </div>
-                <div>
+                <div className="twoColumnRow row">
                     <div className="inputColumns">
                         <label>Recurring:</label>
                         <DropdownMenu dropdownType={"recurring"} targetState={"transaction"}></DropdownMenu>
                     </div>
                     <div className="inputColumns">
                         <label>Amount:</label>
-                        <input></input>
+                        <input required name="amount" type="number" onChange={handleChange}></input>
                     </div>
                 </div>
-                <div>
+                <div className="twoColumnRow row">
                     <div className="inputColumns">
                         <label>Custom Tags:</label>
                         <DropdownMenu dropdownType={"tag"} targetState={"transaction"}></DropdownMenu>
@@ -58,7 +59,7 @@ export default function RecurringInput(){
                         <DropdownMenu dropdownType={"category"} targetState={"transaction"}></DropdownMenu>
                     </div>
                 </div>
-                <div className="recurUiButtons">
+                <div className="recurUiButtons row">
                     <CancelButton></CancelButton>
                     <SaveButton></SaveButton>
                 </div>

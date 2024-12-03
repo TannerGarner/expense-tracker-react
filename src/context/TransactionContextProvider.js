@@ -2,15 +2,26 @@
 
 import { createContext, useState } from "react"
 
-export const TransactionContext = createContext(null);
+export const TransactionInputContext = createContext(null);
 
-export default function TransactionProvider({ children }){
+export function TransactionInputProvider({ children }){
 
-    const [transaction, setTransaction] = useState({})
+    const [transactionInput, setTransactionInput] = useState({})
 
     return(
-        <TransactionContext.Provider value={{transaction, setTransaction}}>
+        <TransactionInputContext.Provider value={{transactionInput, setTransactionInput}}>
             { children }
-        </TransactionContext.Provider>
+        </TransactionInputContext.Provider>
+    )
+}
+
+export const TransactionsContext = createContext(null)
+
+export function TransactionsProvider( {children} ){
+    const  [transactions, setTransactions] = useState({})
+    return(
+        <TransactionsContext.Provider value={{transactions, setTransactions}}>
+            { children }
+        </TransactionsContext.Provider>
     )
 }

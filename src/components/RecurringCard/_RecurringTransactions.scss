@@ -45,7 +45,7 @@
     max-width: 100%;
     gap: var.$gapMed;
 
-    div {
+    .row {
         display: flex;
         align-items: center;
         gap: var.$gapSm;
@@ -57,6 +57,12 @@
         display: flex;
         flex-flow: column wrap;
         max-width: 50%;
+    }
+
+    .threeColumnRow{
+        div{
+            max-width: 33%;
+        }
     }
 
     select, input{
