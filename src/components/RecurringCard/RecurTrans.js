@@ -1,18 +1,13 @@
-export default function RecurTrans () {
-    let recurring = {
-        name: "Rent",
-        method: "Due",
-        date: "11/1", 
-        amount: "$950.00"
-    }
+export default function RecurTrans ( {recur} ) {
+    
 
     return (
         <div className="recurTrans">
             {/* <TransactionIcon></TransactionIcon> */}
             <div className="circle"></div>
-            <p>{recurring.name}</p>
-            <p>{recurring.method} {recurring.date}</p>
-            <p>{recurring.amount}</p>
+            <p>{recur.description}</p>
+            <p>{recur.payType} {recur.date}</p>
+            <p>{recur.amount}</p>
         </div>
     )
 }

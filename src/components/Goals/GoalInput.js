@@ -20,7 +20,7 @@ export default function GoalInput({ onSubmitted }) {
         e.preventDefault();
         console.log("Submitted", goalInput)
         setGoals((prevGoals) => [...prevGoals, goalInput])
-        // empty the form 
+        setGoalInput({});
         onSubmitted();
     }
 

@@ -1,9 +1,22 @@
+'use client'
+
 import RegTrans from "./RegTrans";
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
 import SwapVertOutlinedIcon from '@mui/icons-material/SwapVertOutlined';
 import RegTransInput from "./RegTransInput";
+import { useContext } from "react";
+import { DisplayContext } from "@/context/DisplayContextProvider";
+import { TransactionsContext } from "@/context/TransactionContextProvider";
 
 export default function RegTransCard() {
+
+  const { setDisplay } = useContext(DisplayContext)
+  const { transactions } = useContext(TransactionsContext)
+
+  function populateTransactions() {
+    return transactions.map((reg, index)=> <RegTrans key={index} reg={reg}></RegTrans>)
+  }
+
   return (
     <div className="regTransCard">
       <h4>Track Transactions</h4>
@@ -20,14 +33,9 @@ export default function RegTransCard() {
           <p>$Amount<SwapVertOutlinedIcon/></p>
         </div>
         <div className="regTransBody">
-          <RegTrans></RegTrans>
-          <RegTrans></RegTrans>
-          <RegTrans></RegTrans>
-          <RegTrans></RegTrans>
-          <RegTrans></RegTrans>
-          <RegTrans></RegTrans>
+          {populateTransactions()}
         </div>
-        <RegTransInput></RegTransInput>
+        <RegTransInput onSubmitted={() => {setDisplay(null)}}></RegTransInput>
       </div>
     </div>
   );

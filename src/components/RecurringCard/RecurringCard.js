@@ -1,11 +1,21 @@
+'use client'
+
+import { useContext } from "react";
 import RecurringInput from "./RecurringInput";
 import RecurTrans from "./RecurTrans";
+import { TransactionsContext } from "@/context/TransactionContextProvider";
+import { DisplayContext } from "@/context/DisplayContextProvider";
 
 export default function RecurringCard () {
-    let recurring; //We need to identify which transactions are recurring. 
+    const {setDisplay} = useContext(DisplayContext)
+    const {transactions, setTransactions} = useContext(TransactionsContext)
     
+    let recurringTransactions = transactions.filter((trans) => trans.recurring);
+
+    console.log(recurringTransactions)
+
     function populateRecurring(){
-        return recurring.map((recur, index)=> <RecurTrans key={index} recur={recur}></RecurTrans>)
+        return recurringTransactions.map((recur, index)=> <RecurTrans key={index} recur={recur}></RecurTrans>)
     }
     
     return (
@@ -14,14 +24,8 @@ export default function RecurringCard () {
             <i className="ellipsis-vertical"></i>
             <div className="transContainer">
                 {populateRecurring()}
-                <RecurTrans></RecurTrans>
-                <RecurTrans></RecurTrans>
-                <RecurTrans></RecurTrans>
-                <RecurTrans></RecurTrans>
-                <RecurTrans></RecurTrans>
-                <RecurTrans></RecurTrans>
             </div>
-            <RecurringInput></RecurringInput>
+            <RecurringInput onSubmitted={() => {setDisplay(null)}}></RecurringInput>
         </div>
     )
 }

@@ -18,13 +18,13 @@ export default function RootLayout({ children }) {
       <body className={lexend}>
         <GoalInputProvider>
           <GoalProvider>
-            <TransactionsProvider>
-              <TransactionInputProvider>
+            <TransactionInputProvider>
+              <TransactionsProvider>
                 <DisplayProvider>
                   {children}
                 </DisplayProvider>
-              </TransactionInputProvider>
-            </TransactionsProvider>
+              </TransactionsProvider>
+            </TransactionInputProvider>
           </GoalProvider>
         </GoalInputProvider>
       </body>

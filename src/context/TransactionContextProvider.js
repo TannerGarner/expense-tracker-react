@@ -18,7 +18,7 @@ export function TransactionInputProvider({ children }){
 export const TransactionsContext = createContext(null)
 
 export function TransactionsProvider( {children} ){
-    const  [transactions, setTransactions] = useState({})
+    const  [transactions, setTransactions] = useState([])
     return(
         <TransactionsContext.Provider value={{transactions, setTransactions}}>
             { children }
