@@ -6,10 +6,12 @@
     align-items: center;
     padding: 0 0 var.$padReg 0;
     gap: var.$gapReg;
+    width: 100%;
 
     .goalCardContainer {
         display: flex;
         justify-content: center;
+        flex-wrap: wrap;
         width: 100%;
         gap: var.$gapReg;
         p{
@@ -24,10 +26,23 @@
         padding: var.$padMed;
         border-radius: 25px;
         gap: var.$gapSm;
+        max-width: 35%;
         p{
             display: flex;
             align-items: center;
             justify-content: space-between;
+        }
+
+        .goalTitle{
+            text-wrap: wrap;
+        }
+
+        .fail{
+            color: var.$blushRed;
+        }
+
+        .success{
+            color: var.$seaGreen;
         }
     }
 

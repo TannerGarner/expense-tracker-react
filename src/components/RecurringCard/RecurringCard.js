@@ -12,8 +12,6 @@ export default function RecurringCard () {
     
     let recurringTransactions = transactions.filter((trans) => trans.recurring);
 
-    console.log(recurringTransactions)
-
     function populateRecurring(){
         return recurringTransactions.map((recur, index)=> <RecurTrans key={index} recur={recur}></RecurTrans>)
     }

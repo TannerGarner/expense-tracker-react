@@ -18,11 +18,9 @@
         *{ // Select boxes
             background-color: var.$spaceCadetGrey;
             color: var.$seashellWhite;
-            appearance: none;
             border: none;
             border-radius: 10px;
             font-size: var.$fontSm;
-            padding: var.$padSm;
         }
     }
 
@@ -48,6 +46,7 @@
     .regTransBody{
         width: 100%;
         display: grid;
+        gap: 1px;
 
         background-color: var.$raisinBlack;
     }
@@ -57,7 +56,17 @@
         grid-template-columns: 17% 32% 26% 25%;
 
         padding: var.$padMed var.$padSm;
+        
+    }
+
+    .income{
+        border: solid 2px var.$springGreen;
+        border-bottom: 0;
+    }
+
+    .expense{
         border: solid 2px var.$claretRed;
+        border-bottom: 0;
     }
 
     .regTransInput{

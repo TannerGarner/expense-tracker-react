@@ -58,10 +58,10 @@
         flex-flow: column wrap;
         max-width: 50%;
     }
-
-    .threeColumnRow{
-        div{
-            max-width: 33%;
+    
+    .twoColumnRow{
+        *{
+            max-width: 50%;
         }
     }
 

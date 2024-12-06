@@ -9,6 +9,7 @@
 @use "../components/AddButton/AddModal" as addModal;
 @use "../components/SaveButton/SaveButton" as saveButton;
 @use "../components/CancelButton/CancelButton" as cancelButton;
+@use "../components/DropdownMenu/DropdownMenu" as dropdownMenu;
 
 html, body {
     width: 100vw;

@@ -39,7 +39,7 @@ export default function GoalInput({ onSubmitted }) {
                 <div>
                     <label>
                         Goal:
-                        <input required type="number" name="amount" placeholder="$3,500" id="goalAmount" onChange={handleChange}></input>
+                        <input required type="number" name="amount" step={"0.01"} placeholder="$3,500" id="goalAmount" onChange={handleChange}></input>
                     </label>
                 </div>
                 <div className="whatToWatch">

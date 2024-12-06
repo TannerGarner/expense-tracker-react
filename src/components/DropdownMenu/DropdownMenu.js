@@ -14,12 +14,13 @@ export default function DropdownMenu({ dropdownType, targetState }) {
         cashflow: ["Income", "Expense"],
         category: ["None", "Home", "Utilities", "Food", "Gas", "Car Mntc", "Paycheck"],
         payType: ["Auto", "Manual"],
-        recurring: ["Daily", "Weekly", "Monthly", "Annually"],
+        recurring: ["Daily", "Bi-Weekly","Weekly", "Monthly", "Annually"],
         tag: ["None", "Essential", "Tanner", "Ondine", "Misc"],
     };
 
     const handleChange = (e) => {
-        const updatedState = { [dropdownType]: e.target.value };
+        const value = dropdownType === "tag" ? [e.target.value] : e.target.value;
+        const updatedState = { [dropdownType]: value };
 
         if (targetState === "transaction") {
             setTransactionInput((prev) => ({ ...prev, ...updatedState }));
@@ -29,18 +30,23 @@ export default function DropdownMenu({ dropdownType, targetState }) {
     };
 
     // Default to the first option in the array
-    const defaultValue = dropdownOptions[dropdownType]?.[0] || "";
+    // const defaultValue = dropdownOptions[dropdownType]?.[0] || "";
 
-    useEffect(()=> {
-        if (targetState === "transaction") {
-            setTransactionInput((prev)=> ({...prev, [dropdownType]: defaultValue}))
-        } else if (targetState === "goal") {
-            setGoalInput((prev)=> ({...prev, [dropdownType]: defaultValue}))
-        }
-    }, [display])
+    // useEffect(()=> {
+    //     if (targetState === "transaction") {
+    //         setTransactionInput((prev)=> ({...prev, [dropdownType]: defaultValue}))
+    //     } else if (targetState === "goal") {
+    //         setGoalInput((prev)=> ({...prev, [dropdownType]: defaultValue}))
+    //     }
+    // }, [display])
+
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
 
     return (
-        <select name={dropdownType} defaultValue={defaultValue} onChange={handleChange}>
+        <select name={dropdownType} defaultValue='default' onChange={handleChange}>
+            <option className="customPlaceholder" value={"default"} disabled hidden>{capitalizeFirstLetter(dropdownType)}</option>
             {dropdownOptions[dropdownType]?.map((option, index) => (
                 <option key={index} value={option}>
                     {option}

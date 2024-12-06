@@ -13,6 +13,31 @@ export default function RegTransCard() {
   const { setDisplay } = useContext(DisplayContext)
   const { transactions } = useContext(TransactionsContext)
 
+  //Add Sort Functions
+  function sortTrans(){
+    
+    //By Description (Alphabetical)
+    transactions.sort((a,b)=> {
+      const descriptA = a.description.toUpperCase();
+      const descriptB = b.description.toUpperCase();
+      if (descriptA < descriptB) return -1
+      if (descriptA > descriptB) return 1;
+      return 0;
+    })
+    //By Amount (Largest to smallest, Smallest to Largest)
+    transactions.sort((a,b)=>{
+      let amountA = Number(a.amount)
+      let amountB = Number(b.amount)
+      if (a.cashflow === 'expense') amountA = amountA/-1;
+      if (b.cashflow === 'expense') amountB = amountB/-1;
+      amountA - amountB;
+    })
+
+  }
+      //By Date
+      //By Category (Alphabetical)
+
+
   function populateTransactions() {
     return transactions.map((reg, index)=> <RegTrans key={index} reg={reg}></RegTrans>)
   }

@@ -36,10 +36,12 @@ a {
   align-items: center;
   padding: 0 0 30px 0;
   gap: 30px;
+  width: 100%;
 }
 .goals .goalCardContainer {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   width: 100%;
   gap: 30px;
 }
@@ -53,11 +55,21 @@ a {
   padding: 15px;
   border-radius: 25px;
   gap: 10px;
+  max-width: 35%;
 }
 .goals .goalCard p {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.goals .goalCard .goalTitle {
+  text-wrap: wrap;
+}
+.goals .goalCard .fail {
+  color: #CE5374;
+}
+.goals .goalCard .success {
+  color: #26925C;
 }
 .goals .goalInput {
   background-color: #181825;
@@ -154,8 +166,8 @@ a {
   flex-flow: column wrap;
   max-width: 50%;
 }
-.recurringInput .threeColumnRow div {
-  max-width: 33%;
+.recurringInput .twoColumnRow * {
+  max-width: 50%;
 }
 .recurringInput select, .recurringInput input {
   font-size: 24px;
@@ -188,13 +200,9 @@ a {
 .regTransCard .dropDownMenus * {
   background-color: #30304B;
   color: #FFF3EB;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
   border: none;
   border-radius: 10px;
   font-size: 18px;
-  padding: 10px;
 }
 .regTransCard .regTransTable {
   width: 100vw;
@@ -215,13 +223,21 @@ a {
 .regTransCard .regTransBody {
   width: 100%;
   display: grid;
+  gap: 1px;
   background-color: #181825;
 }
 .regTransCard .regTrans {
   display: grid;
   grid-template-columns: 17% 32% 26% 25%;
   padding: 15px 10px;
+}
+.regTransCard .income {
+  border: solid 2px #1D7247;
+  border-bottom: 0;
+}
+.regTransCard .expense {
   border: solid 2px #9C0D38;
+  border-bottom: 0;
 }
 .regTransCard .regTransInput {
   background-color: #181825;
@@ -319,6 +335,10 @@ a {
 }
 .cancelButton p {
   padding: 0 30px;
+}
+
+.customPlaceholder {
+  color: #30304B;
 }
 
 html, body {

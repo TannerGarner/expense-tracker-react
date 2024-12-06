@@ -41,7 +41,7 @@ export default function RegTransInput({ onSubmitted }) {
                     <input required name="date" type="date" onChange={handleChange}></input>
                     <input required name="description" type="text" onChange={handleChange}></input>
                     <DropdownMenu dropdownType={"category"} targetState={"transaction"}></DropdownMenu>
-                    <input required name="amount" type="number" onChange={handleChange}></input>
+                    <input required name="amount" type="number" step={"0.01"} onChange={handleChange}></input>
                 </div>
                 <div className="secondRowInputs">
                     <span>Custom Tags</span>
