@@ -75,7 +75,7 @@ export default function RegTransCard() {
     }
 
     const filteredTransactions = transactions.filter((t)=>{
-      let cashflowMatch = t.cashflow === filter?.cashflow || filter?.cashflow === "None";
+      let cashflowMatch = t.cashflow === filter?.cashflow || filter?.cashflow === "None" || !filter.cashflow;
       if (!cashflowMatch) return false;
       if (filter.tag){
         let tagMatch = filter?.tag.findIndex(filterTag => t.tag.includes(filterTag) || filterTag === "None");
