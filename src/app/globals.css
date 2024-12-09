@@ -56,7 +56,6 @@ a {
   padding: 15px;
   border-radius: 25px;
   gap: 10px;
-  max-width: 35%;
 }
 .goals .goalCard p {
   display: flex;

@@ -4,51 +4,69 @@ import RegTrans from "./RegTrans";
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
 import SwapVertOutlinedIcon from '@mui/icons-material/SwapVertOutlined';
 import RegTransInput from "./RegTransInput";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { DisplayContext } from "@/context/DisplayContextProvider";
 import { TransactionsContext } from "@/context/TransactionContextProvider";
 
 export default function RegTransCard() {
 
   const { setDisplay } = useContext(DisplayContext)
-  const { transactions } = useContext(TransactionsContext)
+  const { transactions, setTransactions } = useContext(TransactionsContext)
+  const { sortType, setSortType } = useState("");
 
   //Add Sort Functions
-
-  //By Description (Alphabetical)
-  function sortDescription(){
-    transactions.sort((a,b)=> {
-      const descriptA = a.description.toUpperCase();
-      const descriptB = b.description.toUpperCase();
-      if (descriptA < descriptB) return -1
-      if (descriptA > descriptB) return 1;
-      return 0;
-    })
+  const sortOptions = {
+    date: "date",
+    des: "description",
+    cat: "category",
+    amount: "amount",
   }
 
-  //By Amount (Largest to smallest, Smallest to Largest)
-  function sortAmount() {
-    transactions.sort((a,b)=>{
-      let amountA = Number(a.amount)
-      let amountB = Number(b.amount)
-      if (a.cashflow === 'expense') amountA = amountA/-1;
-      if (b.cashflow === 'expense') amountB = amountB/-1;
-      amountA - amountB;
-    })
-  }
-
+  function handleClick(sort) {
+    console.log("Sort Click");
   
-  //By Date
+    const sortedTransactions = [...transactions]; 
   
-  function sortDate(){
-    const start = new Date(goal.startDate)
-    const end = new Date(goal.endDate)
-
-    
+    if (sort === "date"){
+      if (sortType !== "date") setSortType(sortOptions.date);
+      sortedTransactions.sort((a, b) => {
+        let dateA = new Date(a.date);
+        let dateB = new Date(b.date);
+        return dateA - dateB; 
+      });
+      
+    }
+  
+    if (sort === "description") {
+      setSortType(sortOptions.des);
+      sortedTransactions.sort((a, b) => 
+        a.description.localeCompare(b.description, undefined, { sensitivity: 'base' })
+      );
+    }
+  
+    if (sort === "category") {
+      setSortType(sortOptions.cat);
+      sortedTransactions.sort((a, b) => 
+        a.category.localeCompare(b.category, undefined, { sensitivity: 'base' })
+      );
+    }
+  
+    if (sort === "amount") {
+      setSortType(sortOptions.amount);
+      sortedTransactions.sort((a, b) => {
+        let amountA = Number(a.amount);
+        let amountB = Number(b.amount);
+  
+        // Adjust for cashflow direction
+        if (a.cashflow === "expense") amountA *= -1;
+        if (b.cashflow === "expense") amountB *= -1;
+  
+        return amountA - amountB; 
+      });
+    }
+  
+    setTransactions(sortedTransactions); 
   }
-
-  //By Category (Alphabetical)
-
 
   function populateTransactions() {
     return transactions.map((reg, index)=> <RegTrans key={index} reg={reg}></RegTrans>)
@@ -64,10 +82,10 @@ export default function RegTransCard() {
       </div>
       <div className="regTransTable">
         <div className="regTransHead">
-          <p>Date<SwapVertOutlinedIcon/></p>
-          <p>Description<SwapVertOutlinedIcon/></p>
-          <p>Category<SwapVertOutlinedIcon/></p>
-          <p>$Amount<SwapVertOutlinedIcon/></p>
+          <p onClick={()=> handleClick(sortOptions.date)}>Date<SwapVertOutlinedIcon/></p>
+          <p onClick={()=> handleClick(sortOptions.des)}>Description<SwapVertOutlinedIcon/></p>
+          <p onClick={()=> handleClick(sortOptions.cat)}>Category<SwapVertOutlinedIcon/></p>
+          <p onClick={()=> handleClick(sortOptions.amount)}>$Amount<SwapVertOutlinedIcon/></p>
         </div>
         <div className="regTransBody">
           {populateTransactions()}
