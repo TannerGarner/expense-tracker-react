@@ -15,7 +15,7 @@ export default function AddButton() {
         setOpen(false)
     }
 
-    const menuItems = ["Category","Tag","Goal","Recurring","Transaction"]
+    const menuItems = ["Category","Tag","Goal", "Transaction","Recurring"]
 
     if (display !== null) return null;
     return (

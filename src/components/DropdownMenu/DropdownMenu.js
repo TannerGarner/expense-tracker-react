@@ -16,6 +16,7 @@ export default function DropdownMenu({ dropdownType, targetState }) {
         payType: ["Auto", "Manual"],
         recurring: ["Daily", "Bi-Weekly","Weekly", "Monthly", "Annually"],
         tag: ["None", "Essential", "Tanner", "Ondine", "Misc"],
+        date: ["Daily", "Weekly", "Monthly", "Annual"],
     };
 
     const handleChange = (e) => {

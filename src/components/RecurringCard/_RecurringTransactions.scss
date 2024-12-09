@@ -7,9 +7,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: var.$gapReg;
+    max-width: 100vw;
 
     .transContainer{
-        width: 100%;
+        width: 100vw;
         display: flex;
         flex-direction: column;
         padding: var.$padMed 0;
@@ -42,7 +44,7 @@
     font-size: var.$fontReg;
     display: flex;
     flex-direction: column;
-    max-width: 100%;
+    max-width: 100vw;
     gap: var.$gapMed;
 
     .row {

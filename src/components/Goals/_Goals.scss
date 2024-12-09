@@ -6,7 +6,7 @@
     align-items: center;
     padding: 0 0 var.$padReg 0;
     gap: var.$gapReg;
-    width: 100%;
+    width: 100vw;
 
     .goalCardContainer {
         display: flex;
@@ -31,6 +31,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap;
         }
 
         .goalTitle{
@@ -47,6 +48,7 @@
     }
 
     .goalInput{
+        max-width: 100vw;
         background-color: var.$raisinBlack;
         color: var.$seashellWhite;
         border-radius: 25px;
@@ -64,9 +66,13 @@
         }
 
         .whatToWatch{
-            flex-wrap: wrap;
+            flex-direction: column;  
+            p {
+                align-self: flex-start;
+            }  
             div{
                 padding: 0;
+                flex-wrap: wrap;
             }
         }
 

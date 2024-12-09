@@ -20,8 +20,8 @@ export default function Home() {
         <Header></Header>
         <Balance></Balance>
         <Goals></Goals>
-        <RecurringCard></RecurringCard>
         <RegTransCard></RegTransCard>
+        <RecurringCard></RecurringCard>
         <AddButton></AddButton>
     </div>
   );
