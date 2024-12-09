@@ -13,7 +13,7 @@ export default function RegTransCard() {
   const { setDisplay } = useContext(DisplayContext)
   const { transactions, setTransactions } = useContext(TransactionsContext)
   const [ sortDirection, setSortDirection ] = useState(true); //true = low-high, false = high-low
-  const [ filter, setFilter ] = useState();
+  const [ filter, setFilter ] = useState({});
 
   //Add Sort Functions
   const sortOptions = {
@@ -67,19 +67,19 @@ export default function RegTransCard() {
     setTransactions(sortedTransactions); // Update transactions
   }
 
+  console.log(filter)
+
   function populateTransactions() {
-    
-    if (!filter) return transactions.map((reg, index)=> <RegTrans key={index} reg={reg}></RegTrans>)
-    
+    if (!filter || Object.keys(filter).length === 0) {
+      return transactions.map((reg, index) => <RegTrans key={index} reg={reg} />);
+    }
+
     const filteredTransactions = transactions.filter((t)=>{
-      let cashflowMatch = t.cashflow === filter?.cashflow || filter.cashflow === "None";
+      let cashflowMatch = t.cashflow === filter?.cashflow || filter?.cashflow === "None";
       if (!cashflowMatch) return false;
       if (filter.tag){
         let tagMatch = filter?.tag.findIndex(filterTag => t.tag.includes(filterTag) || filterTag === "None");
         if (tagMatch === -1) return false;
-      }
-      if (filter.date){
-        
       }
       return true;
     })

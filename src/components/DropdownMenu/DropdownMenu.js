@@ -32,17 +32,6 @@ export default function DropdownMenu({ dropdownType, targetState, filter, setFil
         }
     };
 
-    // Default to the first option in the array
-    // const defaultValue = dropdownOptions[dropdownType]?.[0] || "";
-
-    // useEffect(()=> {
-    //     if (targetState === "transaction") {
-    //         setTransactionInput((prev)=> ({...prev, [dropdownType]: defaultValue}))
-    //     } else if (targetState === "goal") {
-    //         setGoalInput((prev)=> ({...prev, [dropdownType]: defaultValue}))
-    //     }
-    // }, [display])
-
     function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
