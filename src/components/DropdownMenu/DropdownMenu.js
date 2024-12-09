@@ -5,13 +5,13 @@ import { GoalInputContext } from "@/context/GoalContextProvider";
 import { TransactionInputContext } from "@/context/TransactionContextProvider";
 import { useContext, useEffect } from "react";
 
-export default function DropdownMenu({ dropdownType, targetState }) {
+export default function DropdownMenu({ dropdownType, targetState, filter, setFilter }) {
     const { transactionInput, setTransactionInput } = useContext(TransactionInputContext);
     const { goalInput, setGoalInput } = useContext(GoalInputContext);
     const { display } = useContext(DisplayContext);
 
     const dropdownOptions = {
-        cashflow: ["Income", "Expense"],
+        cashflow: targetState ? ["Income", "Expense"] : ["None", "Income", "Expense"],
         category: ["None", "Home", "Utilities", "Food", "Gas", "Car Mntc", "Paycheck"],
         payType: ["Auto", "Manual"],
         recurring: ["Daily", "Bi-Weekly","Weekly", "Monthly", "Annually"],
@@ -27,6 +27,8 @@ export default function DropdownMenu({ dropdownType, targetState }) {
             setTransactionInput((prev) => ({ ...prev, ...updatedState }));
         } else if (targetState === "goal") {
             setGoalInput((prev) => ({ ...prev, ...updatedState }));
+        } else {
+            setFilter((prev) => ({ ...prev, ...updatedState }))
         }
     };
 
